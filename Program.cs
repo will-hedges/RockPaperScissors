@@ -15,6 +15,38 @@ void DisplayScoreboard(int userScore, int computerScore)
     Console.WriteLine($"-----------------------------");
 }
 
+int GetUserMove()
+{
+    while (true)
+    {
+        Console.WriteLine("What would you like to throw?");
+        Console.WriteLine(
+            @"1) Rock
+2) Paper
+3) Scissors"
+        );
+        string userInput = Console.ReadLine().Trim();
+
+        // exit on no input
+        if (userInput == "")
+        {
+            Environment.Exit(0);
+        }
+
+        // validate the user
+        int userInt = Int16.Parse(userInput);
+        if (userInt >= 1 && userInt <= 3)
+        {
+            return userInt - 1;
+        }
+        else
+        {
+            Console.WriteLine("\nPlease choose a number between 1 and 3.\n");
+            continue;
+        }
+    }
+}
+
 void PlayGame()
 {
     int userScore = 0;
@@ -53,13 +85,8 @@ void PlayGame()
         };
         Random rnd = new Random();
 
-        Console.WriteLine("What would you like to throw?");
-        Console.WriteLine(
-            @"1) Rock
-2) Paper
-3) Scissors"
-        );
-        int userMoveIdx = Int16.Parse(Console.ReadLine()) - 1;
+        int userMoveIdx = GetUserMove();
+
         int computerMoveIdx = rnd.Next(3);
 
         // TODO prevent the user from entering a number NOT between 1-3
