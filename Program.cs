@@ -86,7 +86,6 @@ void PlayGame()
         Random rnd = new Random();
 
         int userMoveIdx = GetUserMove();
-
         int computerMoveIdx = rnd.Next(3);
 
         string userMove = moves[userMoveIdx];
