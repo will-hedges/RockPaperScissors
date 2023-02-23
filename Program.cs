@@ -33,7 +33,7 @@ int GetUserMove()
             Environment.Exit(0);
         }
 
-        // validate the user
+        // validate the user input
         int userInt = Int16.Parse(userInput);
         if (userInt >= 1 && userInt <= 3)
         {
