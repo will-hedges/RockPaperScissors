@@ -89,8 +89,6 @@ void PlayGame()
 
         int computerMoveIdx = rnd.Next(3);
 
-        // TODO prevent the user from entering a number NOT between 1-3
-
         string userMove = moves[userMoveIdx];
         string computerMove = moves[computerMoveIdx];
 
